@@ -21,7 +21,6 @@ describe('check for valid expression inputs', () => {
     expect(checkCorrectParenthesesAmount('!1()a4 &&32 b)')).toBe(false);
     expect(checkCorrectParenthesesAmount('(!(!(a&&a))')).toBe(false);
     expect(checkCorrectParenthesesAmount('!(!(a&&a)))')).toBe(false);
-
   });
 
   test('Correct expression', () => {
@@ -38,7 +37,6 @@ describe('check for valid expression inputs', () => {
     expect(checkCorrectSubexpressions('(!(!((a&&a))')).toBe(false);
     expect(checkCorrectSubexpressions('(!(!(a&&a))')).toBe(true);
     expect(checkCorrectSubexpressions('!(!(a&&a)))')).toBe(true);
-
   });
 });
 
@@ -50,10 +48,7 @@ describe('optional parentheses', () => {
     expect(setOptionalParenthesis(prepareForEvaluation('!(a && b)'))).toBe('(¬(A∧B))');
     expect(setOptionalParenthesis(prepareForEvaluation('!(!(a&&a))'))).toBe('(¬(¬(A∧A)))');
     expect(setOptionalParenthesis(prepareForEvaluation('(!(!(a&&a))'))).toBe('((¬(¬(A∧A)))');
-    //expect(setOptionalParenthesis(prepareForEvaluation('!(!(a&&a)))'))).toBe('(¬(¬(A∧A)))');
-
-
-
+    // expect(setOptionalParenthesis(prepareForEvaluation('!(!(a&&a)))'))).toBe('(¬(¬(A∧A)))');
   });
 
   test('&& Operations', () => {
@@ -62,7 +57,6 @@ describe('optional parentheses', () => {
     expect(setOptionalParenthesis(prepareForEvaluation('a&&(b&&c)'))).toBe('(A∧(B∧C))');
     expect(setOptionalParenthesis(prepareForEvaluation('(a&&b)&&c'))).toBe('((A∧B)∧C)');
     expect(setOptionalParenthesis(prepareForEvaluation('!(!(a&&a))'))).toBe('(¬(¬(A∧A)))');
-
   });
 
   test('<=!=> Operations', () => {
